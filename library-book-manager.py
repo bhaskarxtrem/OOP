@@ -26,65 +26,81 @@ def operations(choice, books):
     if choice == 1:
         add_book()
     elif choice == 2:
-        for i in range(len(books)):
-            print(f"\nBook {i+1}: ")
-            books[i].show_books()
-        input("Press enter to continue!")
-    
+        if books:
+            for i in range(len(books)):
+                print(f"\nBook {i+1}: ")
+                books[i].show_books()
+            input("Press enter to continue!")
+        else:
+            print("No books found! ")
+            input("Press enter to continue! ")
     elif choice == 3:
-        for i in range(len(books)):
-            print(f"\nBook {i+1}: ")
-            books[i].show_books()
-        print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
+        if books:
+            for i in range(len(books)):
+                print(f"\nBook {i+1}: ")
+                books[i].show_books()
+            print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
 
-        while True:
-            try:
-                profile = int(input("Enter the book number you wanna change title of: "))
-                new_title = input("Enter the name you wanna upgrade: ")
+            while True:
+                try:
+                    profile = int(input("Enter the book number you wanna change title of: "))
+                    new_title = input("Enter the name you wanna upgrade: ")
 
-                books[profile-1].change_title(new_title)
-                print("Your title is updated!")
-                input("Enter to continue...")
-                break
-            except:
-                print("Enter only book number to procced!")
+                    books[profile-1].change_title(new_title)
+                    print("Your title is updated!")
+                    input("Enter to continue...")
+                    break
+                except:
+                    print("Enter only book number to procced!")
+        else:
+            print("No books found! ")
+            input("Enter to continue! ")
     
     elif choice == 4:
-        for i in range(len(books)):
-            print(f"\nBook {i+1}: ")
-            books[i].show_books()
-        print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK AUTHOR!")
+        if books:
+            for i in range(len(books)):
+                print(f"\nBook {i+1}: ")
+                books[i].show_books()
+            print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK AUTHOR!")
 
-        while True:
-            try:
-                profile = int(input("Enter the book number you wanna change author of: "))
-                new_author = input("Enter the name you wanna upgrade: ")
+            while True:
+                try:
+                    profile = int(input("Enter the book number you wanna change author of: "))
+                    new_author = input("Enter the name you wanna upgrade: ")
 
-                books[profile-1].change_author(new_author)
-                print("Your author is updated!")
-                input("Enter to continue...")
-                break
-            except:
-                print("Enter only book number to procced!")
+                    books[profile-1].change_author(new_author)
+                    print("Your author is updated!")
+                    input("Enter to continue...")
+                    break
+                except:
+                    print("Enter only book number to procced!")
+        
+        else:
+            print("No books found! ")
+            input("Enter to continue! ")
  
     
     elif choice == 5:
-        for i in range(len(books)):
-            print(f"\nBook {i+1}: ")
-            books[i].show_books()
-        print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
+        if books:
+            for i in range(len(books)):
+                print(f"\nBook {i+1}: ")
+                books[i].show_books()
+            print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
 
-        while True:
-            try:
-                profile = int(input("Enter the book number you wanna change pages of: "))
-                new_pages = int(input("Enter the pages number you wanna update: "))
+            while True:
+                try:
+                    profile = int(input("Enter the book number you wanna change pages of: "))
+                    new_pages = int(input("Enter the pages number you wanna update: "))
 
-                books[profile-1].change_pages(new_pages)
-                print("Your pages is updated!")
-                input("Enter to continue...")
-                break
-            except:
-                print("Enter only book number to procced!")
+                    books[profile-1].change_pages(new_pages)
+                    print("Your pages is updated!")
+                    input("Enter to continue...")
+                    break
+                except:
+                    print("Enter only book number to procced!")
+        else:
+            print("No books found!")
+            input("Enter to continue! ")
 
     elif choice == 6:
         exit = True
