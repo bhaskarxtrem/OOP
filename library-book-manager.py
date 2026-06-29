@@ -3,12 +3,13 @@ books = []
 def add_book():
     new_title = input("Enter the book title: ")
     new_author = input("Enter the author's name: ")
-    new_pages = int(input("Enter the number of pages"))
+    new_pages = int(input("Enter the number of pages: "))
 
     new_book = book(new_title, new_author, new_pages)
     books.append(new_book)
 
     print("Your book is added!")
+    input("Enter to continue! ")
 
 
 
@@ -28,13 +29,13 @@ def operations(choice, books):
         for i in range(len(books)):
             print(f"\nBook {i+1}: ")
             books[i].show_books()
-            input("Press enter to continue!")
+        input("Press enter to continue!")
     
     elif choice == 3:
         for i in range(len(books)):
             print(f"\nBook {i+1}: ")
             books[i].show_books()
-        print("HERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
+        print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
 
         while True:
             try:
@@ -52,7 +53,7 @@ def operations(choice, books):
         for i in range(len(books)):
             print(f"\nBook {i+1}: ")
             books[i].show_books()
-        print("HERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK AUTHOR!")
+        print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK AUTHOR!")
 
         while True:
             try:
@@ -65,18 +66,18 @@ def operations(choice, books):
                 break
             except:
                 print("Enter only book number to procced!")
-
+ 
     
     elif choice == 5:
         for i in range(len(books)):
             print(f"\nBook {i+1}: ")
             books[i].show_books()
-        print("HERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
+        print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
 
         while True:
             try:
                 profile = int(input("Enter the book number you wanna change pages of: "))
-                new_pages = input("Enter the pages number you wanna update: ")
+                new_pages = int(input("Enter the pages number you wanna update: "))
 
                 books[profile-1].change_pages(new_pages)
                 print("Your pages is updated!")
@@ -97,8 +98,8 @@ class book:
 
     def show_books(self):
         print(f"Book name: {self.title}")
-        print(f"Book's author: {self.autor}")
-        print(f"(Number of pages in books: {self.pages})")
+        print(f"Book's author: {self.author}")
+        print(f"Number of pages in books: {self.pages}")
 
     def change_title(self, title):
         self.title = title
