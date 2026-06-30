@@ -12,7 +12,10 @@ def add_book():
     input("Enter to continue! ")
 
 
-
+def all_books(books):
+    for i in range(len(books)):
+        print(f"\nBook {i+1}: ")
+        books[i].show_books()
 
 def menu():
     print("1. Add book")
@@ -27,18 +30,14 @@ def operations(choice, books):
         add_book()
     elif choice == 2:
         if books:
-            for i in range(len(books)):
-                print(f"\nBook {i+1}: ")
-                books[i].show_books()
+            all_books(books)
             input("Press enter to continue!")
         else:
             print("No books found! ")
             input("Press enter to continue! ")
     elif choice == 3:
         if books:
-            for i in range(len(books)):
-                print(f"\nBook {i+1}: ")
-                books[i].show_books()
+            all_books(books)
             print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
 
             while True:
@@ -58,9 +57,7 @@ def operations(choice, books):
     
     elif choice == 4:
         if books:
-            for i in range(len(books)):
-                print(f"\nBook {i+1}: ")
-                books[i].show_books()
+            all_books(books)
             print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK AUTHOR!")
 
             while True:
@@ -82,9 +79,7 @@ def operations(choice, books):
     
     elif choice == 5:
         if books:
-            for i in range(len(books)):
-                print(f"\nBook {i+1}: ")
-                books[i].show_books()
+            all_books(books)
             print("\nHERE IS ALL YOUR BOOKS, CHOOSE THE BOOK NUMBER TO CHANGE BOOK TITLE!")
 
             while True:
