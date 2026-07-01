@@ -19,7 +19,13 @@ def add_member():
     global id
     member_name = input("Enter your name: ")
     member_age = input("Enter your age: ")
-    member_gender = input("what's your gender[Male/Female]: ").lower()
+    while True:
+        member_gender = input("what's your gender[Male/Female]: ").lower()
+        if member_gender == "male" or member_gender == "female":
+            member_gender = member_gender.capitalize()
+            break
+        else:
+            print("Invalid Gender! try again.")
     
     id += 1
 
@@ -190,7 +196,13 @@ def operations(choice, books, members):
             while True:
                 try:
                     member = int(input("Enter the member number to change Gender: "))
-                    new_gender = input("What Gender you wanna update [Male/Female]: ").lower()
+                    while True:
+                        new_gender = input("What Gender you wanna update [Male/Female]: ").lower()
+                        if new_gender == "male" or new_gender == "female":
+                            new_gender = new_gender.capitalize()
+                            break
+                        else:
+                            print("Invalid Gender! try again.")
                     members[member - 1].change_gender(new_gender)
                     print("Your Gender is updated! ")
                     input("Enter to continue! ")
@@ -239,7 +251,7 @@ class Member:
         print(f"Member name: {self.name}")
         print(f"Member age: {self.age}")
         print( f"Member ID: {self.member_id}")
-        print(f"gender: {self.gender}")
+        print(f"Gender: {self.gender}")
 
     def change_name(self, name):
         self.name = name
@@ -262,6 +274,6 @@ while True:
             else:
                 continue
 
-        except Exception as e:
-            print(e)
+        except:
+            print("Only type operation number, try again")
     break
