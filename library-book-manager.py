@@ -1,14 +1,32 @@
 books = []
+members = []
+id = 100
+
 
 def add_book():
     new_title = input("Enter the book title: ")
     new_author = input("Enter the author's name: ")
     new_pages = int(input("Enter the number of pages: "))
 
-    new_book = book(new_title, new_author, new_pages)
+    new_book = Book(new_title, new_author, new_pages)
     books.append(new_book)
 
     print("Your book is added!")
+    input("Enter to continue! ")
+
+
+def add_member():
+    global id
+    member_name = input("Enter your name: ")
+    member_age = input("Enter your age: ")
+    member_gender = input("what's your gender[Male/Female]: ").lower()
+    member_id = id + 1
+
+    new_member = Member(member_name, member_age, member_id, member_gender)
+
+    members.append(new_member)
+
+    print("Member is added")
     input("Enter to continue! ")
 
 
@@ -18,12 +36,20 @@ def all_books(books):
         books[i].show_books()
 
 def menu():
+    print("---------------------------------")
     print("1. Add book")
     print("2. Show all books")
     print("3. Change Book Title")
     print("4. Change Book Author")
     print("5. Change number of pages")
-    print("6. Exit")
+    print("---------------------------------")
+    print("6. Add members")
+    print("7. Show members")
+    print("8. Change member name")
+    print("9. Change member age")
+    print("10. Change member gender")
+    print("---------------------------------")
+    print("11. Exit")
 
 def operations(choice, books):
     if choice == 1:
@@ -97,11 +123,11 @@ def operations(choice, books):
             print("No books found!")
             input("Enter to continue! ")
 
-    elif choice == 6:
+    elif choice == 11:
         exit = True
         return exit
 
-class book:
+class Book:
     def __init__(self, title, author, pages):
         self.title = title 
         self.author = author
@@ -120,13 +146,36 @@ class book:
     
     def change_pages(self, pages):
         self.pages = pages
-              
+
+
+    class Member:
+        def __init__(self, name, age, member_id, gender ):
+            self.name = name
+            self.age = age
+            self.member_id = member_id
+            self.gender = gender
+
+        def show_member(self):
+            print(f"Member name: {self.name}")
+            print(f"Member age: {self.age}")
+            print( f"Member ID: {self.member_id}")
+            print(f"gender: {self.gender}")
+
+        def change_name(self, name):
+            self.name = name
+
+        def change_age(self, age):
+            self.age = age
+        
+        def change_gender(self, gender):
+            self.gender = gender
+
 
 while True:
     while True:
         try:
             menu()
-            choice = int(input("Enter the operation number you wanna do: "))
+            choice = int(input("\nEnter the operation number you wanna do: "))
             exit = operations(choice, books)
             if exit:
                 break
