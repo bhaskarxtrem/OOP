@@ -39,6 +39,31 @@ def add_member():
     input("Enter to continue! ")
 
 
+def remove():
+    if books:
+        all_books(books)
+        print("\nHERE ARE ALL THE BOOKS, SELECT THE BOOK NUMBER TO REMOVE IT! ")
+        while True:
+            try:
+                book = int(input("Enter the book number you wanna remove: "))
+                books.pop(book - 1)
+
+                print("Your book is removed! ")
+                input("Enter to continue! ")
+                break
+
+
+            
+
+            except:
+                print("Only type book number to procced! ")
+                input("Enter to continue! ")
+
+    else:
+        print("No books found! ")
+        input("Enter to continue! ")
+                
+
 def all_books(books):
     for i in range(len(books)):
         print(f"\nBook {i+1}: ")
@@ -56,14 +81,15 @@ def menu():
     print("3. Change Book Title")
     print("4. Change Book Author")
     print("5. Change number of pages")
+    print("6. Remove book")
     print("---------------------------------")
-    print("6. Add members")
-    print("7. Show members")
-    print("8. Change member name")
-    print("9. Change member age")
-    print("10. Change member gender")
+    print("7. Add members")
+    print("8. Show members")
+    print("9. Change member name")
+    print("10. Change member age")
+    print("11. Change member gender")
     print("---------------------------------")
-    print("11. Exit")
+    print("12. Exit")
 
 def operations(choice, books, members):
     if choice == 1:
@@ -138,9 +164,12 @@ def operations(choice, books, members):
             input("Enter to continue! ")
 
     elif choice == 6:
-        add_member()
+        remove()
 
     elif choice == 7:
+        add_member()
+
+    elif choice == 8:
         if members:
             all_members(members)
             input("Enter to continue! ")
@@ -148,7 +177,7 @@ def operations(choice, books, members):
             print("No members found! ")
             input("Enter to continue! ")
 
-    elif choice == 8:
+    elif choice == 9:
         if members:
             all_members(members)
             print(f"\nTHESE ARE ALL THE MEMBERS OF LIBRARY, CHOOSE THE MEMBER NUMBER TO UPDATE NAME! ")
@@ -168,7 +197,7 @@ def operations(choice, books, members):
             print("No members found! ")
             input("Enter to continue! ")
 
-    elif choice == 9:
+    elif choice == 10:
         if members:
             all_members(members)
             print(f"\nTHESE ARE ALL THE MEMBERS OF LIBRARY, CHOOSE THE MEMBER NUMBER TO UPDATE AGE! ")
@@ -188,7 +217,7 @@ def operations(choice, books, members):
             print("No members found! ")
             input("Enter to continue! ")
 
-    elif choice == 10:
+    elif choice == 11:
         if members:
             all_members(members)
             print(f"\nTHESE ARE ALL THE MEMBERS OF LIBRARY, CHOOSE THE MEMBER NUMBER TO UPDATE GENDER! ")
@@ -215,7 +244,7 @@ def operations(choice, books, members):
             input("Enter to continue! ")
 
 
-    elif choice == 11:
+    elif choice == 12:
         exit = True
         return exit
 
