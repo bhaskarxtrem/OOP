@@ -39,7 +39,7 @@ def add_member():
     input("Enter to continue! ")
 
 
-def remove():
+def remove_book():
     if books:
         all_books(books)
         print("\nHERE ARE ALL THE BOOKS, SELECT THE BOOK NUMBER TO REMOVE IT! ")
@@ -51,10 +51,6 @@ def remove():
                 print("Your book is removed! ")
                 input("Enter to continue! ")
                 break
-
-
-            
-
             except:
                 print("Only type book number to procced! ")
                 input("Enter to continue! ")
@@ -62,7 +58,28 @@ def remove():
     else:
         print("No books found! ")
         input("Enter to continue! ")
-                
+
+
+def remove_member():
+    if members:
+        all_members(members)
+        print("\nHERE IS ALL THE MEMBER LIST, CHOOSE THE MEMBER NUMBER TO REMOVE IT! ")
+        while True:
+            try:
+                member = int(input("Enter the member number you wanna remove: "))
+                members.pop(member - 1)
+
+                print("Member deleted successfully! ")
+                input("Enter to continue! ")
+                break
+            except:
+                print("Only type member number to procced! ")
+                input("Enter to continue! ")
+    
+    else:
+        print("No members found! ")
+        input("Enter to continue! ")
+
 
 def all_books(books):
     for i in range(len(books)):
@@ -88,8 +105,9 @@ def menu():
     print("9. Change member name")
     print("10. Change member age")
     print("11. Change member gender")
+    print("12. Remove member")
     print("---------------------------------")
-    print("12. Exit")
+    print("13. Exit")
 
 def operations(choice, books, members):
     if choice == 1:
@@ -164,7 +182,7 @@ def operations(choice, books, members):
             input("Enter to continue! ")
 
     elif choice == 6:
-        remove()
+        remove_book()
 
     elif choice == 7:
         add_member()
@@ -245,6 +263,9 @@ def operations(choice, books, members):
 
 
     elif choice == 12:
+        remove_member()
+
+    elif choice == 13:
         exit = True
         return exit
 
